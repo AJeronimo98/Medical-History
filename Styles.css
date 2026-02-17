@@ -1,43 +1,51 @@
-#odontograma {
-  display: grid;
-  grid-template-columns: repeat(16, 60px);
-  gap: 8px;
-  justify-content: center;
-  margin-top: 12px;
+body{
+font-family: Arial, sans-serif;
+margin:40px;
+background:#f5f7fa;
 }
 
-.diente {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  user-select: none;
+#documento{
+background:white;
+padding:40px;
+width:800px;
+margin:auto;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
 }
 
-.tooth {
-  width: 55px;
-  height: 65px;
-  display: block;
+h1,h2,h3{
+text-align:center;
 }
 
-.sup {
-  fill: #ffffff;
-  stroke: #333;
-  stroke-width: 1;
-  transition: 0.15s;
-  cursor: pointer;
+textarea{
+width:100%;
+height:60px;
+margin-bottom:10px;
 }
 
-.sup:hover {
-  stroke-width: 1.8;
+.odontograma{
+width:100%;
+border-collapse:collapse;
+margin:20px 0;
 }
 
-.sup.caries { fill: #ff6b6b; }
-.sup.obturado { fill: #4dabf7; }
-.sup.corona { fill: #ffd43b; }
-.sup.ausente { fill: #adb5bd; }
-
-.num {
-  font-size: 9px;
-  margin-top: 2px;
+.odontograma td{
+border:1px solid #000;
+text-align:center;
+padding:5px;
 }
 
+.odontograma input{
+width:40px;
+border:none;
+text-align:center;
+}
+
+#timeline{
+margin:10px 0;
+}
+
+.evento{
+border-left:3px solid #2c3e50;
+padding-left:10px;
+margin:5px 0;
+}

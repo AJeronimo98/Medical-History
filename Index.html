@@ -2,254 +2,134 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Historia Clínica</title>
+<title>Historia Clínica Odontológica</title>
+<link rel="stylesheet" href="styles.css">
 
-<link rel="stylesheet" href="Styles.css">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
+<!-- Librería PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 
 <body>
 
-<div class="pagina">
+<div id="documento">
 
-<div class="encabezado">
-<img src="Assets/Logo.png" class="logo">
-<h1>HISTORIA CLÍNICA</h1>
-</div>
+<h1>HISTORIA CLINICA ODONTOLOGICA</h1>
 
-<form id="formHistoria">
+<h2>AXEL JERONIMO PEREZ</h2>
 
-<!-- FICHA -->
-<section>
-<h2>FICHA DE IDENTIFICACIÓN</h2>
-<label>Nombre</label>
-<input type="text">
+<p><b>FECHA:</b> ____/____/____ &nbsp;&nbsp;&nbsp;
+<b>No. Expediente:</b> __________</p>
 
-<div class="fila">
-<label>Género:</label>
-<label class="check"><input type="checkbox"> M</label>
-<label class="check"><input type="checkbox"> F</label>
+<h3>FICHA DE IDENTIFICACION</h3>
+<p>Nombre: ____________________________  
+Genero: M ☐ F ☐  
+Fecha de Nacimiento: ____/____/____</p>
 
-<label>Fecha de nacimiento:</label>
-<input type="date">
-</div>
+<p>Lugar de Nacimiento: ____________________________  
+Lugar de Residencia: ____________________________</p>
 
-<label>Lugar de nacimiento</label>
-<input type="text">
-<label>Lugar de residencia</label>
-<input type="text">
+<p>Escolaridad: __________  
+Ocupación: __________  
+Estado Civil: __________</p>
 
-<div class="fila">
-<label>Escolaridad</label>
-<input type="text">
-<label>Ocupación</label>
-<input type="text">
-<label>Estado civil</label>
-<input type="text">
-</div>
+<p>Telefono: __________  
+Familiar Responsable: __________</p>
 
-<div class="fila">
-<label>Teléfono</label>
-<input type="text">
-<label>Familiar responsable</label>
-<input type="text">
-</div>
+<hr>
 
-<div class="fila">
-<label>Tipo de sangre</label>
-<input type="text">
-<label>Servicio médico</label>
-<label class="check"><input type="checkbox"> IMSS</label>
-<label class="check"><input type="checkbox"> ISSSTE</label>
-<label class="check"><input type="checkbox"> OTRO</label>
-</div>
-
-<h3>En caso de ser menor de edad</h3>
-<label>Tutor y celular</label>
-<input type="text">
-</section>
-
-<!-- PADECIMIENTO -->
-<section>
-<h2>Padecimiento actual</h2>
+<h3>PADECIMIENTO ACTUAL</h3>
 <textarea></textarea>
-<label>Medicación actual</label>
-<input type="text">
-</section>
 
-<!-- HEREDO -->
-<section>
-<h2>ANTECEDENTES HEREDO-FAMILIARES</h2>
-<h3>Madre</h3>
+<h3>ANTECEDENTES HEREDO-FAMILIARES</h3>
+<p>Madre:</p>
 <textarea></textarea>
-<h3>Padre</h3>
+
+<p>Padre:</p>
 <textarea></textarea>
-<h3>Abuelos</h3>
+
+<p>Abuelos:</p>
 <textarea></textarea>
-</section>
 
-<!-- PATOLOGICOS -->
-<section>
-<h2>ANTECEDENTES PERSONALES PATOLÓGICOS</h2>
+<hr>
 
-<h3>Enfermedades de la infancia</h3>
-<div class="checkgrid">
-<label><input type="checkbox"> Rubéola</label>
-<label><input type="checkbox"> Sarampión</label>
-<label><input type="checkbox"> Parotiditis</label>
-<label><input type="checkbox"> Influenza</label>
-<label><input type="checkbox"> Artritis</label>
-<label><input type="checkbox"> Asma</label>
-</div>
-
-<label>Quirúrgicos</label>
+<h3>ANTECEDENTES PERSONALES PATOLOGICOS</h3>
 <textarea></textarea>
-<label>Alérgicos</label>
+
+<h3>ANTECEDENTES PERSONALES NO PATOLOGICOS</h3>
 <textarea></textarea>
-<label>Enfermedades actuales</label>
+
+<hr>
+
+<h3>EXPLORACION FISICA</h3>
+<p>Peso: _____ Altura: _____ FC: _____ Temp: _____</p>
+
 <textarea></textarea>
-<label>Toxicomanías</label>
-<textarea></textarea>
-<label>Frecuencia</label>
-<input type="text">
-</section>
 
-<!-- NO PATOLOGICOS -->
-<section>
-<h2>ANTECEDENTES PERSONALES NO PATOLÓGICOS</h2>
+<hr>
 
-<label>Tipo de vivienda</label>
-<div class="fila">
-<label class="check"><input type="checkbox"> Lámina</label>
-<label class="check"><input type="checkbox"> Concreto</label>
-<label class="check"><input type="checkbox"> Tablaroca</label>
-</div>
-
-<label>Servicios básicos</label>
-<div class="fila">
-<label class="check"><input type="checkbox"> Agua potable</label>
-<label class="check"><input type="checkbox"> Agua de pozo</label>
-<label class="check"><input type="checkbox"> Luz</label>
-<label class="check"><input type="checkbox"> Drenaje</label>
-<label class="check"><input type="checkbox"> Letrina</label>
-</div>
-
-<label>Hacinamiento</label>
-<input type="text">
-<label>Zoonosis</label>
-<input type="text">
-</section>
-
-<!-- GINECO -->
-<section>
-<h2>ANTECEDENTES GINECO-OBSTÉTRICOS</h2>
-
-<div class="fila">
-<label>Menarca</label><input type="text">
-<label>Ciclo</label><input type="text">
-<label>Embarazos</label><input type="text">
-</div>
-
-<div class="fila">
-<label>Histerectomía</label><input type="text">
-<label>Medicamentos</label><input type="text">
-</div>
-</section>
-
-<!-- EXPLORACION -->
-<section>
-<h2>EXPLORACIÓN FÍSICA</h2>
-
-<div class="grid3">
-<label>Peso <input type="text"></label>
-<label>Altura <input type="text"></label>
-<label>IMC <input type="text"></label>
-<label>TA <input type="text"></label>
-<label>SaO2 <input type="text"></label>
-<label>Glucosa mg/dL <input type="text"></label>
-</div>
-
-<h3>Forma del cráneo</h3>
-<div class="fila">
-<label class="check"><input type="checkbox"> Craneocéfalo</label>
-<label class="check"><input type="checkbox"> Dolicocefalo</label>
-<label class="check"><input type="checkbox"> Braquicefalo</label>
-<label class="check"><input type="checkbox"> Plagiocefalo</label>
-<label class="check"><input type="checkbox"> Normocefalo</label>
-</div>
-
-<label>Lesiones en piel</label>
-<textarea></textarea>
-</section>
-
-<!-- GABINETE -->
-<section>
-<h2>ESTUDIOS DE GABINETE Y LABORATORIO</h2>
-<label>Estudios de laboratorio</label>
-<textarea></textarea>
-<label>Ortopantomografía</label>
-<textarea></textarea>
-<label>Radiografía periapical</label>
-<textarea></textarea>
-<label>Otros</label>
-<textarea></textarea>
-</section>
-
-<section>
-<h2>Diagnóstico probable</h2>
-<textarea></textarea>
-</section>
-
-<section>
-<h2>Plan de tratamiento</h2>
-<textarea></textarea>
-</section>
-
-<section>
-<h2>Pronóstico</h2>
-<textarea></textarea>
-</section>
-
-<!-- 🦷 ODONTOGRAMA DIDACTICO -->
-<section>
 <h2>ODONTOGRAMA</h2>
 
-<div id="odontograma"></div>
+<table class="odontograma">
+<tr>
+<td>18</td><td>17</td><td>16</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td>
+<td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td>
+</tr>
+<tr>
+<td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td>
+<td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td>
+</tr>
+<tr>
+<td>48</td><td>47</td><td>46</td><td>45</td><td>44</td><td>43</td><td>42</td><td>41</td>
+<td>31</td><td>32</td><td>33</td><td>34</td><td>35</td><td>36</td><td>37</td><td>38</td>
+</tr>
+<tr>
+<td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td>
+<td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td>
+</tr>
+</table>
 
-<div class="leyenda">
-  <span class="c caries"></span> Caries
-  <span class="c obturado"></span> Obturado
-  <span class="c corona"></span> Corona
-  <span class="c ausente"></span> Ausente
-</div>
-</section>
+<hr>
 
-<!-- FIRMA -->
-<section>
-<p>Oaxaca de Juárez, Oax a ____ de __________ de ______</p>
-<p>
-Manifiesto que proporcioné toda la información solicitada con veracidad, además de ser la necesaria para los tratamientos a realizar.
-</p>
+<h2>TIMELINE ODONTOLOGICO</h2>
+
+<div id="timeline"></div>
+
+<input type="date" id="fechaEvento">
+<input type="text" id="descEvento" placeholder="Procedimiento">
+<button onclick="agregarEvento()">Agregar</button>
+
+<hr>
+
+<h3>Diagnostico probable</h3>
+<textarea></textarea>
+
+<h3>Plan de tratamiento</h3>
+<textarea></textarea>
+
+<h3>Pronostico</h3>
+<textarea></textarea>
+
 <br><br>
-<p>______________________________________________</p>
-<p>Nombre completo y firma</p>
-<p>(Si es menor de edad firma del tutor)</p>
-</section>
 
-<div class="botonPDF">
-<button type="button" onclick="generarPDF()">
-Descargar Historia Clínica
-</button>
+<p>Oaxaca de Juárez, Oax ______ de __________ de ______</p>
+
+<p>__________________________________  
+Nombre y firma del paciente</p>
+
+<p>__________________________________  
+Nombre y firma del alumno</p>
+
+<p>__________________________________  
+Nombre y firma del profesor</p>
+
 </div>
 
-</form>
-</div>
+<br>
 
-<script src="JS/Script_Odontograma.js"></script>
-<script src="PDF/GeneratorPDF.js"></script>
+<button onclick="descargarPDF()">Descargar PDF</button>
+
+<script src="script.js"></script>
+<script src="pdf.js"></script>
 
 </body>
 </html>
