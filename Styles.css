@@ -151,42 +151,74 @@ section p {
   }
 }
 
-.odontograma {
+/* =========================
+   ODONTOGRAMA SVG DIDACTICO
+   ========================= */
+
+#odontograma {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
   align-items: center;
   margin-top: 10px;
 }
 
-.arcada {
-  display: grid;
-  grid-template-columns: repeat(16, 32px);
-  gap: 4px;
-}
-
-.diente {
-  width: 32px;
-  height: 32px;
-  border: 1px solid #333;
-  border-radius: 4px;
-  font-size: 10px;
+.arcada-svg {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 6px;
+}
+
+.diente-svg {
+  width: 42px;
+  height: 52px;
   cursor: pointer;
-  background: white;
-  user-select: none;
-  transition: 0.2s;
+  transition: transform 0.15s;
 }
 
-.diente:hover {
-  transform: scale(1.1);
+.diente-svg:hover {
+  transform: scale(1.08);
 }
 
-/* Estados */
-.sano { background: #ffffff; }
+/* Cara dental */
+.cara {
+  fill: #ffffff;
+  stroke: #333;
+  stroke-width: 1;
+}
+
+/* Estados clínicos */
+.cara.caries { fill: #ff6b6b; }
+.cara.obturado { fill: #4dabf7; }
+.cara.corona { fill: #ffd43b; }
+.cara.ausente { fill: #adb5bd; }
+
+/* Número de diente */
+.num-diente {
+  font-size: 8px;
+  text-anchor: middle;
+  fill: #000;
+  font-family: "Times New Roman", serif;
+}
+
+/* Leyenda */
+.leyenda {
+  margin-top: 8px;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  font-size: 11pt;
+}
+
+.leyenda .c {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #333;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
 .caries { background: #ff6b6b; }
 .obturado { background: #4dabf7; }
-.ausente { background: #adb5bd; }
 .corona { background: #ffd43b; }
+.ausente { background: #adb5bd; }
