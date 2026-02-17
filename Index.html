@@ -2,253 +2,264 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Historia Clinica Odontologica</title>
+<title>Historia Clínica Odontológica</title>
+
 <link rel="stylesheet" href="styles.css">
 
+<!-- Librería PDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script defer src="script.js"></script>
+<script defer src="pdf.js"></script>
 </head>
 
 <body>
 
-<div id="documento">
+<div class="pagina" id="historia">
 
-<h1>Historia Clinica</h1>
+<h1>HISTORIA CLINICA</h1>
 
 <p><b>AXEL JERONIMO PEREZ</b></p>
 
 <p>
-FECHA: ____/____/____<br>
-Numero de expediente: __________
+FECHA: <input type="text" class="mini">
+Numero de expediente: <input type="text" class="mini">
 </p>
 
-<h3>FICHA DE IDENTIFICACION</h3>
+<h2>FICHA DE IDENTIFICACION</h2>
 
 <p>
-Nombre: ____________________________________________ 
-Genero: M ☐ F ☐ 
-Fecha De Nacimiento: ____/____/____.<br><br>
-
-Lugar De Nacimiento: ________________________________________________________________<br>
-Lugar De Residencia: ________________________________________________________________<br><br>
-
-Escolaridad: ___________________ 
-Ocupación: ______________________ 
-Estado Civil: _____________________ 
-Telefono: ________________________<br><br>
-
-Familiar Responsable Y Numero De Celular: ____________________________<br>
-Tipo De Sangre: ___________ 
-Servicio Medico ☐IMSS ☐ISSSTE ☐OTRO ______________________<br>
-Numero de Afiliación (IMSS/ISSSTE): _________________
-</p>
-
-<p><b>EN CASO DE SER MENOR DE EDAD</b><br>
-Tutor y numero de celular: ________________________________________________
-</p>
-
-<h3>Padecimiento actual (motivo de la consulta)</h3>
-<textarea></textarea>
-<p>Fecha de inicio ______________________________</p>
-<p>medicación actual _____________________________</p>
-
-<h3>ANTECEDENTES HEREDO-FAMILIARES</h3>
-
-<p><b>MADRE:</b></p>
-<textarea></textarea>
-
-<p><b>PADRE:</b></p>
-<textarea></textarea>
-
-<p><b>ABUELOS:</b></p>
-<textarea></textarea>
-
-<h3>ANTECEDENTES PERSONALES PATOLOGICOS</h3>
-
-<p><b>ENFERMEDADES PROPIAS DE LA INFANCIA</b> Si ☐ No ☐</p>
-<p>Rubeola<br>Sarampion<br>Parotiditis<br>Influenza<br>Artritis<br>Asma</p>
-
-<p>Otras:</p>
-<textarea></textarea>
-
-<p>Quirúrgicos:</p>
-<textarea></textarea>
-
-<p>Traumático:</p>
-<textarea></textarea>
-
-<p>Transfusionales:</p>
-<textarea></textarea>
-
-<p>Alergicos:</p>
-<textarea></textarea>
-
-<p>Enfermedades actuales:</p>
-<textarea></textarea>
-
-<p>Alcoholismo, tabaquismo y toxicomanías:</p>
-<textarea></textarea>
-
-<p>(frecuencia)</p>
-<textarea></textarea>
-
-<p>Medicamentos actuales que toma el paciente:</p>
-<textarea></textarea>
-
-<h3>ANTECEDENTES PERSONALES NO PATOLOGICOS</h3>
-
-<p>
-Tipo de vivienda: Lamina ( ) concreto ( ) tablaroca ( )<br>
-Servicios básicos agua potable ( ) agua de pozo ( ) luz eléctrica ( ) drenaje ( ) Letrina ( )
-</p>
-
-<p>Hacinamiento:</p>
-<textarea></textarea>
-
-<p>zoonosis:</p>
-<textarea></textarea>
-
-<h3>ANTECEDENTES GINECO-OBSTETRICOS</h3>
-
-<p>
-mernarca __________________________<br>
-Ciclo ______________________________<br>
-Embarazos _________________________<br>
-Histerectomia ______________________<br>
-Medicamentos ______________________
-</p>
-
-<h3>INTERROGATORIO POR APARATOS Y SISTEMAS</h3>
-<textarea></textarea>
-
-<h3>EXPLORACION FISICA</h3>
-
-<p>
-Neurologico<br>
-Respiratorio<br>
-Cardiaco<br>
-Digestivo<br>
-Genitourinario<br>
-Musculo esquelético<br>
-Otros
+Nombre: <input type="text" class="linea">
+Genero:
+<label><input type="checkbox"> M</label>
+<label><input type="checkbox"> F</label>
+Fecha De Nacimiento: <input type="text" class="mini">
 </p>
 
 <p>
-PESO: ____________ 
-FC: ________________ 
-Color de piel: ________________<br>
-
-ALTURA: __________ 
-SaO2: ______________<br>
-
-IMC: ______________ 
-Temperatura: ________ 
-Señas particulares: ____________
+Lugar De Nacimiento: <input type="text" class="linea"><br><br>
+Lugar De Residencia: <input type="text" class="linea">
 </p>
 
 <p>
-forma del craneo: ( ) craneocefalo ( ) dolicocefalo ( ) braquicefalo ( ) plagiocefalo. 
-Otro: _______________________<br>
-
-forma de la cara: ( ) ovalada ( ) larga ( ) redonda ( ) cuadrada ( ) corazón ( ) diamante.<br>
-
-Perfil facial: ( ) ortognatico ( ) retrognatico ( ) prognatico
+Escolaridad: <input type="text" class="mini">
+Ocupación: <input type="text" class="mini">
+Estado Civil: <input type="text" class="mini">
+Telefono: <input type="text" class="mini">
 </p>
 
-<p>Lesiones en la piel:</p>
-<textarea></textarea>
+<p>
+Familiar Responsable Y Numero De Celular:
+<input type="text" class="linea">
+</p>
 
-<p>traumatismos:</p>
-<textarea></textarea>
+<p>
+Tipo De Sangre: <input type="text" class="mini">
+Servicio Medico:
+<label><input type="checkbox"> IMSS</label>
+<label><input type="checkbox"> ISSSTE</label>
+<label><input type="checkbox"> OTRO</label>
+Numero de Afiliación:
+<input type="text" class="mini">
+</p>
 
-<p>Cuello:</p>
-<textarea></textarea>
+<p>
+<b>EN CASO DE SER MENOR DE EDAD</b><br>
+Tutor y numero de celular:
+<input type="text" class="linea">
+</p>
 
-<p>torax:</p>
-<textarea></textarea>
+<h2>Padecimiento actual</h2>
 
-<p>Abdomen:</p>
-<textarea></textarea>
+<textarea class="area"></textarea>
 
-<p>Extremidades:</p>
-<textarea></textarea>
+<p>
+Fecha de inicio: <input type="text" class="mini">
+medicación actual: <input type="text" class="linea">
+</p>
 
-<h3>ESTUDIOS DE GABINETE Y LABORATORIO</h3>
+<h2>ANTECEDENTES HEREDO-FAMILIARES</h2>
+
+<b>MADRE</b>
+<textarea class="area"></textarea>
+
+<b>PADRE</b>
+<textarea class="area"></textarea>
+
+<b>ABUELOS</b>
+<textarea class="area"></textarea>
+
+<h2>ANTECEDENTES PERSONALES PATOLOGICOS</h2>
+
+<h3>ENFERMEDADES PROPIAS DE LA INFANCIA</h3>
+
+<label><input type="checkbox"> Rubeola</label>
+<label><input type="checkbox"> Sarampion</label>
+<label><input type="checkbox"> Parotiditis</label>
+<label><input type="checkbox"> Influenza</label>
+<label><input type="checkbox"> Artritis</label>
+<label><input type="checkbox"> Asma</label>
+
+<p>Otras: <input type="text" class="linea"></p>
+
+<p>Quirúrgicos: <input type="text" class="linea"></p>
+<p>Traumático: <input type="text" class="linea"></p>
+<p>Transfusionales: <input type="text" class="linea"></p>
+
+<p>
+Alergicos:
+<input type="text" class="mini">
+(en caso de ser positivo a que):
+<input type="text" class="linea">
+</p>
+
+<p>Enfermedades actuales: <input type="text" class="linea"></p>
+
+<p>
+Alcoholismo, tabaquismo y toxicomanías:
+<input type="text" class="linea"><br>
+(frecuencia): <input type="text" class="mini">
+</p>
+
+<p>
+Medicamentos actuales:
+<textarea class="area"></textarea>
+</p>
+
+<h2>ANTECEDENTES PERSONALES NO PATOLOGICOS</h2>
+
+<p>
+Tipo de vivienda:
+<label><input type="checkbox"> Lamina</label>
+<label><input type="checkbox"> concreto</label>
+<label><input type="checkbox"> tablaroca</label>
+</p>
+
+<p>
+Servicios básicos:
+<label><input type="checkbox"> agua potable</label>
+<label><input type="checkbox"> agua de pozo</label>
+<label><input type="checkbox"> luz eléctrica</label>
+<label><input type="checkbox"> drenaje</label>
+<label><input type="checkbox"> Letrina</label>
+</p>
+
+<p>
+Hacinamiento: <input type="text" class="mini">
+zoonosis: <input type="text" class="mini">
+</p>
+
+<h2>INTERROGATORIO POR APARATOS Y SISTEMAS</h2>
+
+<label><input type="checkbox"> Neurologico</label>
+<label><input type="checkbox"> Respiratorio</label>
+<label><input type="checkbox"> Cardiaco</label>
+<label><input type="checkbox"> Digestivo</label>
+<label><input type="checkbox"> Genitourinario</label>
+<label><input type="checkbox"> Musculo esquelético</label>
+<label><input type="checkbox"> Otros</label>
+
+<h2>EXPLORACION FISICA</h2>
+
+<p>
+PESO: <input class="mini">
+FC: <input class="mini">
+Color de piel: <input class="mini"><br><br>
+
+ALTURA: <input class="mini">
+SaO2: <input class="mini"><br><br>
+
+IMC: <input class="mini">
+Temperatura: <input class="mini">
+Señas particulares: <input class="mini">
+</p>
+
+<p>
+forma del craneo:
+<label><input type="checkbox"> craneocefalo</label>
+<label><input type="checkbox"> dolicocefalo</label>
+<label><input type="checkbox"> braquicefalo</label>
+<label><input type="checkbox"> plagiocefalo</label>
+Otro: <input class="mini">
+</p>
+
+<p>
+forma de la cara:
+<label><input type="checkbox"> ovalada</label>
+<label><input type="checkbox"> larga</label>
+<label><input type="checkbox"> redonda</label>
+<label><input type="checkbox"> cuadrada</label>
+<label><input type="checkbox"> corazón</label>
+<label><input type="checkbox"> diamante</label>
+</p>
+
+<p>
+Perfil facial:
+<label><input type="checkbox"> ortognatico</label>
+<label><input type="checkbox"> retrognatico</label>
+<label><input type="checkbox"> prognatico</label>
+</p>
+
+<p>
+Lesiones en la piel:
+<input class="linea"><br><br>
+traumatismos:
+<input class="linea">
+</p>
+
+<p>Cuello: <input class="linea"></p>
+<p>Torax: <input class="linea"></p>
+<p>Abdomen: <input class="linea"></p>
+<p>Extremidades: <input class="linea"></p>
+
+<h2>ESTUDIOS DE GABINETE Y LABORATORIO</h2>
 
 <p>Estudios de laboratorio:</p>
-<textarea></textarea>
+<textarea class="area"></textarea>
 
 <p>Ortopantomografia:</p>
-<textarea></textarea>
+<textarea class="area"></textarea>
 
 <p>Radiografia periapical:</p>
-<textarea></textarea>
+<textarea class="area"></textarea>
 
 <p>Otro:</p>
-<textarea></textarea>
+<textarea class="area"></textarea>
 
 <h2>ODONTOGRAMA</h2>
 
-<table class="odontograma">
-<tr>
-<td>18</td><td>17</td><td>16</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td>
-<td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td>
-</tr>
-<tr>
-<td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td>
-<td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td>
-</tr>
-<tr>
-<td>48</td><td>47</td><td>46</td><td>45</td><td>44</td><td>43</td><td>42</td><td>41</td>
-<td>31</td><td>32</td><td>33</td><td>34</td><td>35</td><td>36</td><td>37</td><td>38</td>
-</tr>
-<tr>
-<td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td>
-<td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td><td><input></td>
-</tr>
-</table>
+<div id="odontograma"></div>
 
-<h3>Diagnostico probable:</h3>
-<textarea></textarea>
+<h2>Diagnostico probable</h2>
+<textarea class="area"></textarea>
 
-<h3>Plan de tratamiento</h3>
-<textarea></textarea>
+<h2>Plan de tratamiento</h2>
+<textarea class="area"></textarea>
 
-<h3>pronostico</h3>
-<textarea></textarea>
+<h2>Pronostico</h2>
+<textarea class="area"></textarea>
 
 <br><br>
 
-<p>Oaxaca de Juárez, Oax a _____ de __________________ de _______</p>
+<p>
+Oaxaca de Juárez, Oax a _____ de __________________ de _______
+</p>
 
 <p>
-Manifesto que proporcione toda la información solicitada con veracidad, ademas de ser la necesaria para el o los tratamientos a realizar
+Manifesto que proporcione toda la información solicitada con veracidad
 </p>
 
 <br><br>
 
-<p>_____________________________________</p>
-<p>Nombre completo y firma</p>
-<p>(Si es menor de edad nombre completo y firma del tutor)</p>
-
-<br>
-
-<p>______________________________________</p>
-<p>Nombre y firma del alumno</p>
-
-<br>
-
-<p>_____________________________________</p>
-<p>Nombre y firma del profesor titular</p>
-
-</div>
+<p>Nombre completo y firma ____________________________</p>
+<p>Nombre y firma del alumno __________________________</p>
+<p>Nombre y firma del profesor titular __________________</p>
 
 <br><br>
 
 <button onclick="descargarPDF()">Descargar PDF</button>
 
-<script src="script.js"></script>
-<script src="pdf.js"></script>
+</div>
 
 </body>
 </html>
-
