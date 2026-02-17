@@ -1,7 +1,6 @@
 async function generarPDF() {
 
   const { jsPDF } = window.jspdf;
-
   const elemento = document.querySelector(".pagina");
 
   const canvas = await html2canvas(elemento, {
@@ -36,27 +35,3 @@ async function generarPDF() {
   pdf.save("Historia_Clinica.pdf");
 }
 
-
-/* =========================
-   ODONTOGRAMA SVG INTERACTIVO
-   ========================= */
-
-const estados = ["sano", "caries", "obturado", "ausente", "corona"];
-
-document.querySelectorAll(".cara").forEach(cara => {
-
-  cara.dataset.estado = "sano";
-
-  cara.addEventListener("click", () => {
-
-    let actual = cara.dataset.estado;
-    let idx = estados.indexOf(actual);
-    let siguiente = estados[(idx + 1) % estados.length];
-
-    cara.classList.remove(actual);
-    if (siguiente !== "sano") cara.classList.add(siguiente);
-
-    cara.dataset.estado = siguiente;
-  });
-
-});

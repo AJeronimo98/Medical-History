@@ -8,7 +8,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="PDF/GeneratorPDF.js"></script>
 
 </head>
 
@@ -26,7 +25,6 @@
 <!-- FICHA -->
 <section>
 <h2>FICHA DE IDENTIFICACIÓN</h2>
-
 <label>Nombre</label>
 <input type="text">
 
@@ -41,17 +39,14 @@
 
 <label>Lugar de nacimiento</label>
 <input type="text">
-
 <label>Lugar de residencia</label>
 <input type="text">
 
 <div class="fila">
 <label>Escolaridad</label>
 <input type="text">
-
 <label>Ocupación</label>
 <input type="text">
-
 <label>Estado civil</label>
 <input type="text">
 </div>
@@ -59,7 +54,6 @@
 <div class="fila">
 <label>Teléfono</label>
 <input type="text">
-
 <label>Familiar responsable</label>
 <input type="text">
 </div>
@@ -67,7 +61,6 @@
 <div class="fila">
 <label>Tipo de sangre</label>
 <input type="text">
-
 <label>Servicio médico</label>
 <label class="check"><input type="checkbox"> IMSS</label>
 <label class="check"><input type="checkbox"> ISSSTE</label>
@@ -83,7 +76,6 @@
 <section>
 <h2>Padecimiento actual</h2>
 <textarea></textarea>
-
 <label>Medicación actual</label>
 <input type="text">
 </section>
@@ -91,13 +83,10 @@
 <!-- HEREDO -->
 <section>
 <h2>ANTECEDENTES HEREDO-FAMILIARES</h2>
-
 <h3>Madre</h3>
 <textarea></textarea>
-
 <h3>Padre</h3>
 <textarea></textarea>
-
 <h3>Abuelos</h3>
 <textarea></textarea>
 </section>
@@ -118,16 +107,12 @@
 
 <label>Quirúrgicos</label>
 <textarea></textarea>
-
 <label>Alérgicos</label>
 <textarea></textarea>
-
 <label>Enfermedades actuales</label>
 <textarea></textarea>
-
 <label>Toxicomanías</label>
 <textarea></textarea>
-
 <label>Frecuencia</label>
 <input type="text">
 </section>
@@ -154,7 +139,6 @@
 
 <label>Hacinamiento</label>
 <input type="text">
-
 <label>Zoonosis</label>
 <input type="text">
 </section>
@@ -164,22 +148,14 @@
 <h2>ANTECEDENTES GINECO-OBSTÉTRICOS</h2>
 
 <div class="fila">
-<label>Menarca</label>
-<input type="text">
-
-<label>Ciclo</label>
-<input type="text">
-
-<label>Embarazos</label>
-<input type="text">
+<label>Menarca</label><input type="text">
+<label>Ciclo</label><input type="text">
+<label>Embarazos</label><input type="text">
 </div>
 
 <div class="fila">
-<label>Histerectomía</label>
-<input type="text">
-
-<label>Medicamentos</label>
-<input type="text">
+<label>Histerectomía</label><input type="text">
+<label>Medicamentos</label><input type="text">
 </div>
 </section>
 
@@ -212,21 +188,16 @@
 <!-- GABINETE -->
 <section>
 <h2>ESTUDIOS DE GABINETE Y LABORATORIO</h2>
-
 <label>Estudios de laboratorio</label>
 <textarea></textarea>
-
 <label>Ortopantomografía</label>
 <textarea></textarea>
-
 <label>Radiografía periapical</label>
 <textarea></textarea>
-
 <label>Otros</label>
 <textarea></textarea>
 </section>
 
-<!-- DIAGNOSTICO -->
 <section>
 <h2>Diagnóstico probable</h2>
 <textarea></textarea>
@@ -242,7 +213,7 @@
 <textarea></textarea>
 </section>
 
-<!-- 🦷 ODONTOGRAMA SVG -->
+<!-- 🦷 ODONTOGRAMA DIDACTICO -->
 <section>
 <h2>ODONTOGRAMA</h2>
 
@@ -259,13 +230,10 @@
 <!-- FIRMA -->
 <section>
 <p>Oaxaca de Juárez, Oax a ____ de __________ de ______</p>
-
 <p>
 Manifiesto que proporcioné toda la información solicitada con veracidad, además de ser la necesaria para los tratamientos a realizar.
 </p>
-
 <br><br>
-
 <p>______________________________________________</p>
 <p>Nombre completo y firma</p>
 <p>(Si es menor de edad firma del tutor)</p>
@@ -278,12 +246,10 @@ Descargar Historia Clínica
 </div>
 
 </form>
-
 </div>
 
-<!-- SCRIPT ODONTOGRAMA -->
 <script src="JS/Script_Odontograma.js"></script>
+<script src="PDF/GeneratorPDF.js"></script>
 
 </body>
 </html>
-

@@ -1,232 +1,3 @@
-@page {
-  size: A4;
-  margin: 2.5cm;
-}
-
-body {
-  margin: 0;
-  padding: 20px 0;
-  background: #f3f3f3;
-  font-family: "Times New Roman", serif;
-  display: flex;
-  justify-content: center;
-}
-
-.pagina {
-  background: white;
-  width: 100%;
-  max-width: 850px;
-  padding: 40px 45px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.encabezado {
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-.logo {
-  width: 85px;
-  margin-bottom: 10px;
-}
-
-h1 {
-  font-size: 20pt;
-  margin: 0;
-}
-
-section {
-  margin-top: 22px;
-}
-
-h2 {
-  font-size: 13pt;
-  border-bottom: 1px solid #000;
-  padding-bottom: 3px;
-  margin-bottom: 10px;
-}
-
-h3 {
-  font-size: 11.5pt;
-  margin-top: 12px;
-  margin-bottom: 4px;
-}
-
-label {
-  display: block;
-  font-size: 11pt;
-  margin-top: 6px;
-}
-
-input, textarea {
-  width: 100%;
-  border: 1px solid #444;
-  padding: 5px 6px;
-  font-family: "Times New Roman", serif;
-  font-size: 11pt;
-  box-sizing: border-box;
-}
-
-textarea {
-  min-height: 55px;
-  resize: vertical;
-}
-
-.fila {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 6px;
-}
-
-.fila input[type="text"],
-.fila input[type="date"] {
-  flex: 1;
-}
-
-.check {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  margin-right: 10px;
-  font-size: 11pt;
-}
-
-.checkgrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px 12px;
-  margin-top: 6px;
-}
-
-.grid3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-top: 6px;
-}
-
-.grid3 label {
-  display: flex;
-  flex-direction: column;
-}
-
-.botonPDF {
-  text-align: center;
-  margin-top: 30px;
-}
-
-button {
-  padding: 9px 22px;
-  font-size: 11pt;
-  border: none;
-  background: #000;
-  color: white;
-  cursor: pointer;
-  font-family: "Times New Roman", serif;
-}
-
-button:hover {
-  background: #333;
-}
-
-section p {
-  font-size: 11pt;
-  margin: 6px 0;
-}
-
-@media print {
-  body {
-    background: white;
-  }
-
-  .pagina {
-    box-shadow: none;
-    margin: 0;
-  }
-
-  button {
-    display: none;
-  }
-}
-
-/* =========================
-   ODONTOGRAMA SVG DIDACTICO
-   ========================= */
-
-#odontograma {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.arcada-svg {
-  display: flex;
-  gap: 6px;
-}
-
-.diente-svg {
-  width: 42px;
-  height: 52px;
-  cursor: pointer;
-  transition: transform 0.15s;
-}
-
-.diente-svg:hover {
-  transform: scale(1.08);
-}
-
-/* Cara dental */
-.cara {
-  fill: #ffffff;
-  stroke: #333;
-  stroke-width: 1;
-}
-
-/* Estados clínicos */
-.cara.caries { fill: #ff6b6b; }
-.cara.obturado { fill: #4dabf7; }
-.cara.corona { fill: #ffd43b; }
-.cara.ausente { fill: #adb5bd; }
-
-/* Número de diente */
-.num-diente {
-  font-size: 8px;
-  text-anchor: middle;
-  fill: #000;
-  font-family: "Times New Roman", serif;
-}
-
-/* Leyenda */
-.leyenda {
-  margin-top: 8px;
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  font-size: 11pt;
-}
-
-.leyenda .c {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border: 1px solid #333;
-  margin-right: 4px;
-  vertical-align: middle;
-}
-
-.caries { background: #ff6b6b; }
-.obturado { background: #4dabf7; }
-.corona { background: #ffd43b; }
-.ausente { background: #adb5bd; }
-
-/* =====================
-   ODONTOGRAMA CLINICO
-   ===================== */
-
 #odontograma {
   display: grid;
   grid-template-columns: repeat(16, 60px);
@@ -239,36 +10,34 @@ section p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
   user-select: none;
 }
 
 .tooth {
   width: 55px;
   height: 65px;
+  display: block;
 }
 
-/* superficies */
 .sup {
   fill: #ffffff;
   stroke: #333;
   stroke-width: 1;
   transition: 0.15s;
+  cursor: pointer;
 }
 
 .sup:hover {
   stroke-width: 1.8;
 }
 
-/* estados clínicos */
 .sup.caries { fill: #ff6b6b; }
 .sup.obturado { fill: #4dabf7; }
 .sup.corona { fill: #ffd43b; }
 .sup.ausente { fill: #adb5bd; }
 
-/* numero dental */
 .num {
   font-size: 9px;
   margin-top: 2px;
-  font-family: "Times New Roman", serif;
 }
+
