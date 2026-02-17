@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Historia Clínica</title>
+
+<link rel="stylesheet" href="Styles.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="PDF/GeneratorPDF.js"></script>
+
+</head>
+
+<body>
+
+<div class="pagina">
+
+<div class="encabezado">
+<img src="Assets/Logo.png" class="logo">
+<h1>HISTORIA CLÍNICA</h1>
+</div>
+
+<form id="formHistoria">
+
+<!-- FICHA -->
+<section>
+<h2>FICHA DE IDENTIFICACIÓN</h2>
+
+<label>Nombre</label>
+<input type="text">
+
+<div class="fila">
+<label>Género:</label>
+<label class="check"><input type="checkbox"> M</label>
+<label class="check"><input type="checkbox"> F</label>
+
+<label>Fecha de nacimiento:</label>
+<input type="date">
+</div>
+
+<label>Lugar de nacimiento</label>
+<input type="text">
+
+<label>Lugar de residencia</label>
+<input type="text">
+
+<div class="fila">
+<label>Escolaridad</label>
+<input type="text">
+
+<label>Ocupación</label>
+<input type="text">
+
+<label>Estado civil</label>
+<input type="text">
+</div>
+
+<div class="fila">
+<label>Teléfono</label>
+<input type="text">
+
+<label>Familiar responsable</label>
+<input type="text">
+</div>
+
+<div class="fila">
+<label>Tipo de sangre</label>
+<input type="text">
+
+<label>Servicio médico</label>
+<label class="check"><input type="checkbox"> IMSS</label>
+<label class="check"><input type="checkbox"> ISSSTE</label>
+<label class="check"><input type="checkbox"> OTRO</label>
+</div>
+
+<h3>En caso de ser menor de edad</h3>
+<label>Tutor y celular</label>
+<input type="text">
+</section>
+
+<!-- PADECIMIENTO -->
+<section>
+<h2>Padecimiento actual</h2>
+<textarea></textarea>
+
+<label>Medicación actual</label>
+<input type="text">
+</section>
+
+<!-- HEREDO -->
+<section>
+<h2>ANTECEDENTES HEREDO-FAMILIARES</h2>
+
+<h3>Madre</h3>
+<textarea></textarea>
+
+<h3>Padre</h3>
+<textarea></textarea>
+
+<h3>Abuelos</h3>
+<textarea></textarea>
+</section>
+
+<!-- PATOLOGICOS -->
+<section>
+<h2>ANTECEDENTES PERSONALES PATOLÓGICOS</h2>
+
+<h3>Enfermedades de la infancia</h3>
+<div class="checkgrid">
+<label><input type="checkbox"> Rubéola</label>
+<label><input type="checkbox"> Sarampión</label>
+<label><input type="checkbox"> Parotiditis</label>
+<label><input type="checkbox"> Influenza</label>
+<label><input type="checkbox"> Artritis</label>
+<label><input type="checkbox"> Asma</label>
+</div>
+
+<label>Quirúrgicos</label>
+<textarea></textarea>
+
+<label>Alérgicos</label>
+<textarea></textarea>
+
+<label>Enfermedades actuales</label>
+<textarea></textarea>
+
+<label>Toxicomanías</label>
+<textarea></textarea>
+
+<label>Frecuencia</label>
+<input type="text">
+</section>
+
+<!-- NO PATOLOGICOS -->
+<section>
+<h2>ANTECEDENTES PERSONALES NO PATOLÓGICOS</h2>
+
+<label>Tipo de vivienda</label>
+<div class="fila">
+<label class="check"><input type="checkbox"> Lámina</label>
+<label class="check"><input type="checkbox"> Concreto</label>
+<label class="check"><input type="checkbox"> Tablaroca</label>
+</div>
+
+<label>Servicios básicos</label>
+<div class="fila">
+<label class="check"><input type="checkbox"> Agua potable</label>
+<label class="check"><input type="checkbox"> Agua de pozo</label>
+<label class="check"><input type="checkbox"> Luz</label>
+<label class="check"><input type="checkbox"> Drenaje</label>
+<label class="check"><input type="checkbox"> Letrina</label>
+</div>
+
+<label>Hacinamiento</label>
+<input type="text">
+
+<label>Zoonosis</label>
+<input type="text">
+</section>
+
+<!-- GINECO -->
+<section>
+<h2>ANTECEDENTES GINECO-OBSTÉTRICOS</h2>
+
+<div class="fila">
+<label>Menarca</label>
+<input type="text">
+
+<label>Ciclo</label>
+<input type="text">
+
+<label>Embarazos</label>
+<input type="text">
+</div>
+
+<div class="fila">
+<label>Histerectomía</label>
+<input type="text">
+
+<label>Medicamentos</label>
+<input type="text">
+</div>
+</section>
+
+<!-- EXPLORACION -->
+<section>
+<h2>EXPLORACIÓN FÍSICA</h2>
+
+<div class="grid3">
+<label>Peso <input type="text"></label>
+<label>Altura <input type="text"></label>
+<label>IMC <input type="text"></label>
+<label>TA <input type="text"></label>
+<label>SaO2 <input type="text"></label>
+<label>Glucosa mg/dL <input type="text"></label>
+</div>
+
+<h3>Forma del cráneo</h3>
+<div class="fila">
+<label class="check"><input type="checkbox"> Craneocéfalo</label>
+<label class="check"><input type="checkbox"> Dolicocefalo</label>
+<label class="check"><input type="checkbox"> Braquicefalo</label>
+<label class="check"><input type="checkbox"> Plagiocefalo</label>
+<label class="check"><input type="checkbox"> Normocefalo</label>
+</div>
+
+<label>Lesiones en piel</label>
+<textarea></textarea>
+</section>
+
+<!-- GABINETE -->
+<section>
+<h2>ESTUDIOS DE GABINETE Y LABORATORIO</h2>
+
+<label>Estudios de laboratorio</label>
+<textarea></textarea>
+
+<label>Ortopantomografía</label>
+<textarea></textarea>
+
+<label>Radiografía periapical</label>
+<textarea></textarea>
+
+<label>Otros</label>
+<textarea></textarea>
+</section>
+
+<!-- DIAGNOSTICO -->
+<section>
+<h2>Diagnóstico probable</h2>
+<textarea></textarea>
+</section>
+
+<section>
+<h2>Plan de tratamiento</h2>
+<textarea></textarea>
+</section>
+
+<section>
+<h2>Pronóstico</h2>
+<textarea></textarea>
+</section>
+
+<!-- FIRMA -->
+<section>
+<p>Oaxaca de Juárez, Oax a ____ de __________ de ______</p>
+
+<p>
+Manifiesto que proporcioné toda la información solicitada con veracidad, además de ser la necesaria para los tratamientos a realizar.
+</p>
+
+<br><br>
+
+<p>______________________________________________</p>
+<p>Nombre completo y firma</p>
+<p>(Si es menor de edad firma del tutor)</p>
+</section>
+
+<div class="botonPDF">
+<button type="button" onclick="generarPDF()">
+Descargar Historia Clínica
+</button>
+</div>
+
+</form>
+
+</div>
+
+</body>
+</html>

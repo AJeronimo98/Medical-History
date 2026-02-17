@@ -1,0 +1,152 @@
+@page {
+  size: A4;
+  margin: 2.5cm;
+}
+
+body {
+  margin: 0;
+  padding: 20px 0;
+  background: #f3f3f3;
+  font-family: "Times New Roman", serif;
+  display: flex;
+  justify-content: center;
+}
+
+.pagina {
+  background: white;
+  width: 100%;
+  max-width: 850px;
+  padding: 40px 45px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.encabezado {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.logo {
+  width: 85px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 20pt;
+  margin: 0;
+}
+
+section {
+  margin-top: 22px;
+}
+
+h2 {
+  font-size: 13pt;
+  border-bottom: 1px solid #000;
+  padding-bottom: 3px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 11.5pt;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+label {
+  display: block;
+  font-size: 11pt;
+  margin-top: 6px;
+}
+
+input, textarea {
+  width: 100%;
+  border: 1px solid #444;
+  padding: 5px 6px;
+  font-family: "Times New Roman", serif;
+  font-size: 11pt;
+  box-sizing: border-box;
+}
+
+textarea {
+  min-height: 55px;
+  resize: vertical;
+}
+
+.fila {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.fila input[type="text"],
+.fila input[type="date"] {
+  flex: 1;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-right: 10px;
+  font-size: 11pt;
+}
+
+.checkgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px 12px;
+  margin-top: 6px;
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.grid3 label {
+  display: flex;
+  flex-direction: column;
+}
+
+.botonPDF {
+  text-align: center;
+  margin-top: 30px;
+}
+
+button {
+  padding: 9px 22px;
+  font-size: 11pt;
+  border: none;
+  background: #000;
+  color: white;
+  cursor: pointer;
+  font-family: "Times New Roman", serif;
+}
+
+button:hover {
+  background: #333;
+}
+
+section p {
+  font-size: 11pt;
+  margin: 6px 0;
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .pagina {
+    box-shadow: none;
+    margin: 0;
+  }
+
+  button {
+    display: none;
+  }
+}
