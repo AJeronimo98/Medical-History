@@ -33,3 +33,19 @@ async function generarPDF() {
 
   pdf.save("Historia_Clinica.pdf");
 }
+
+const estados = ["sano", "caries", "obturado", "ausente", "corona"];
+
+document.querySelectorAll(".diente").forEach(diente => {
+  diente.dataset.estado = "sano";
+
+  diente.addEventListener("click", () => {
+    let actual = diente.dataset.estado;
+    let idx = estados.indexOf(actual);
+    let siguiente = estados[(idx + 1) % estados.length];
+
+    diente.classList.remove(actual);
+    diente.classList.add(siguiente);
+    diente.dataset.estado = siguiente;
+  });
+});

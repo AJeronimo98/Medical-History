@@ -150,3 +150,43 @@ section p {
     display: none;
   }
 }
+
+.odontograma {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.arcada {
+  display: grid;
+  grid-template-columns: repeat(16, 32px);
+  gap: 4px;
+}
+
+.diente {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: white;
+  user-select: none;
+  transition: 0.2s;
+}
+
+.diente:hover {
+  transform: scale(1.1);
+}
+
+/* Estados */
+.sano { background: #ffffff; }
+.caries { background: #ff6b6b; }
+.obturado { background: #4dabf7; }
+.ausente { background: #adb5bd; }
+.corona { background: #ffd43b; }
