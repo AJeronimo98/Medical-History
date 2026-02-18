@@ -1,5 +1,5 @@
 function descargarPDF() {
-  const elemento = document.querySelector(".pagina"); // Contenido completo
+  const elemento = document.querySelector(".pagina"); // Div principal
 
   html2canvas(elemento, {
     scale: 3,
@@ -18,17 +18,15 @@ function descargarPDF() {
     const pdfWidth = pdf.internal.pageSize.getWidth();
     const pdfHeight = pdf.internal.pageSize.getHeight();
 
-    // dimensiones del canvas en mm
-    const imgProps = {
-      width: canvas.width * 0.264583, // px a mm
-      height: canvas.height * 0.264583
-    };
+    // Convertir tamaño de canvas de px a mm
+    const imgWidth = canvas.width * 0.264583; // 1 px ≈ 0.264583 mm
+    const imgHeight = canvas.height * 0.264583;
 
-    // posición X para centrar
-    const x = (pdfWidth - imgProps.width) / 2;
-    const y = 10; // margen superior
+    // Centrar horizontalmente
+    const x = (pdfWidth - imgWidth) / 2;
+    const y = 10; // margen superior opcional
 
-    pdf.addImage(imgData, 'JPEG', x, y, imgProps.width, imgProps.height);
+    pdf.addImage(imgData, 'JPEG', x, y, imgWidth, imgHeight);
     pdf.save('Historia_Clinica.pdf');
   });
 }
