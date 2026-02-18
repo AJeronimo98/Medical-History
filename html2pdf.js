@@ -1,5 +1,5 @@
 function descargarPDF() {
-  const elemento = document.querySelector(".pagina"); // Div principal
+  const elemento = document.querySelector(".pagina");
 
   html2canvas(elemento, {
     scale: 3,
@@ -16,10 +16,9 @@ function descargarPDF() {
     });
 
     const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = pdf.internal.pageSize.getHeight();
 
     // Convertir tamaño de canvas de px a mm
-    const imgWidth = canvas.width * 0.264583; // 1 px ≈ 0.264583 mm
+    const imgWidth = canvas.width * 0.264583;
     const imgHeight = canvas.height * 0.264583;
 
     // Centrar horizontalmente
