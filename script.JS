@@ -49,13 +49,13 @@ function descargarPDF() {
   window.scrollTo(0,0); // asegurar que capture toda la página
 
   const opciones = {
-  margin: [10, 0, 10, 0], // margen superior, derecho, inferior, izquierdo
-  filename: 'Historia_Clinica.pdf',
-  image: { type: 'jpeg', quality: 1 },
-  html2canvas: { scale: 3, useCORS: true, logging: true, scrollX: 0, scrollY: 0 },
-  jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-  pagebreak: { mode: ['css', 'legacy'] }
-};
+    margin: 10,
+    filename: 'Historia_Clinica.pdf',
+    image: { type: 'jpeg', quality: 1 },
+    html2canvas: { scale: 3, useCORS: true, logging: true },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    pagebreak: { mode: ['css', 'legacy'] }
+  };
 
   html2pdf().set(opciones).from(elemento).save();
 }
