@@ -1,9 +1,7 @@
 /* ====== RESET Y BASE ====== */
 * {
     box-sizing: border-box;
-    /* Forzamos que los colores de fondo y bordes se mantengan en cualquier salida */
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact;
 }
 
 body {
@@ -24,8 +22,6 @@ body {
     box-shadow: 0 0 14px rgba(0,0,0,0.18);
     line-height: 1.4;
     color: #000;
-    /* Asegura que no haya desbordamientos que muevan el PDF */
-    overflow: hidden; 
 }
 
 /* ====== TITULOS ====== */
@@ -101,22 +97,21 @@ input[type="text"] {
     display: block;
 }
 
-/* ====== ODONTOGRAMA ====== */
+/* ====== ODONTOGRAMA (CORREGIDO PARA 2 FILAS) ====== */
 #odontograma {
     display: flex;
     flex-direction: column;
-    gap: 20px; 
+    gap: 25px; /* Espacio entre arcada superior e inferior */
     margin: 30px 0;
     padding: 15px;
-    background: #fdfdfd; /* Un tono casi blanco para que no ensucie el PDF */
-    border: 1px solid #eee;
+    background: #f9f9f9;
     border-radius: 4px;
 }
 
 .fila-odontograma {
     display: grid;
-    grid-template-columns: repeat(16, 1fr); 
-    gap: 2px;
+    grid-template-columns: repeat(16, 1fr); /* 16 dientes por fila */
+    gap: 4px;
     justify-items: center;
     width: 100%;
 }
@@ -128,27 +123,25 @@ input[type="text"] {
 }
 
 .tooth {
-    width: 32px; 
+    width: 32px; /* Tamaño ideal para que quepan 16 sin amontonarse */
     height: auto;
     cursor: pointer;
-    /* Importante para que html2canvas no corte los bordes del SVG */
-    overflow: visible !important; 
+    overflow: visible;
 }
 
-/* Estilos de los caminos del SVG (Unificados) */
+/* Estilos de los caminos del SVG */
 .sup {
     fill: #ffffff;
-    stroke: #000000 !important;
-    stroke-width: 1.5px !important; 
+    stroke: #000000;
+    stroke-width: 1.5; /* Un poco más grueso para que se vea claro en el PDF */
     transition: fill 0.2s;
-    vector-effect: non-scaling-stroke; /* Mantiene el grosor del borde constante */
 }
 
-/* Colores de estados (Consolidados con opacidad total) */
-.sup.caries { fill: #ff4d4d !important; opacity: 1 !important; }
-.sup.obturado { fill: #4d94ff !important; opacity: 1 !important; }
-.sup.corona { fill: #ffd700 !important; opacity: 1 !important; }
-.sup.ausente { fill: #b3b3b3 !important; opacity: 1 !important; }
+/* Colores de estados con !important para la captura del canvas */
+.sup.caries { fill: #ff4d4d !important; }
+.sup.obturado { fill: #4d94ff !important; }
+.sup.corona { fill: #ffd700 !important; }
+.sup.ausente { fill: #b3b3b3 !important; }
 
 .num {
     font-size: 8pt;
@@ -161,7 +154,7 @@ input[type="text"] {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 /* ====== BOTÓN ====== */
@@ -180,14 +173,31 @@ button {
 
 button:hover { background: #1a252f; }
 
-/* ====== AJUSTES DE IMPRESIÓN / PDF ====== */
+/* ====== AJUSTES DE IMPRESIÓN/PDF ====== */
 @media print {
     body { background: white; padding: 0; }
     .pagina { 
         box-shadow: none !important; 
         margin: 0 !important; 
         width: 100% !important;
-        border: none;
     }
     button { display: none !important; }
 }
+
+/* Fuerza la impresión de colores y formas */
+.tooth, .sup {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    overflow: visible !important;
+}
+
+.sup {
+    stroke: #000000 !important;
+    stroke-width: 1.5px !important; /* Más grueso para que el PDF lo capte mejor */
+}
+
+/* Asegura que los colores de los estados sean visibles para el canvas */
+.sup.caries { fill: #ff4d4d !important; opacity: 1 !important; }
+.sup.obturado { fill: #4d94ff !important; opacity: 1 !important; }
+.sup.corona { fill: #ffd700 !important; opacity: 1 !important; }
+.sup.ausente { fill: #b3b3b3 !important; opacity: 1 !important; }
