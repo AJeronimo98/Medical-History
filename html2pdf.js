@@ -1,31 +1,35 @@
 function descargarPDF() {
   const elemento = document.querySelector(".pagina");
+  
+  // Forzamos el scroll al inicio para evitar cortes
+  window.scrollTo(0, 0);
 
-  html2canvas(elemento, {
-    scale: 3,
-    useCORS: true,
-    scrollX: 0,
-    scrollY: 0
-  }).then(canvas => {
-    const imgData = canvas.toDataURL('image/jpeg', 1.0);
+  const opciones = {
+    margin: [10, 10, 10, 10], // Margen en mm
+    filename: 'Historia_Clinica_Axel.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { 
+      scale: 3, 
+      useCORS: true, 
+      letterRendering: true,
+      width: 794, // Ancho exacto para A4
+      windowWidth: 794 
+    },
+    jsPDF: { 
+      unit: 'mm', 
+      format: 'a4', 
+      orientation: 'portrait' 
+    },
+    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+  };
 
-    const pdf = new jsPDF({
-      unit: 'mm',
-      format: 'a4',
-      orientation: 'portrait'
-    });
+  // 1. Quitamos la sombra y centrado visual para la "foto"
+  elemento.style.boxShadow = "none";
+  elemento.style.margin = "0";
 
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-
-    // Convertir tamaño de canvas de px a mm
-    const imgWidth = canvas.width * 0.264583;
-    const imgHeight = canvas.height * 0.264583;
-
-    // Centrar horizontalmente
-    const x = (pdfWidth - imgWidth) / 2;
-    const y = 10; // margen superior opcional
-
-    pdf.addImage(imgData, 'JPEG', x, y, imgWidth, imgHeight);
-    pdf.save('Historia_Clinica.pdf');
+  html2pdf().set(opciones).from(elemento).save().then(() => {
+    // 2. Restauramos el estilo para que en la web se siga viendo igual
+    elemento.style.boxShadow = "0 0 14px rgba(0,0,0,0.18)";
+    elemento.style.margin = "0 auto";
   });
 }

@@ -1,189 +1,195 @@
-/* ====== BASE ====== */
-
-body{
-font-family: "Times New Roman", serif;
-background:#dee2e6;
-display:flex;
-justify-content:center;
-padding:25px;
+/* ====== RESET Y BASE ====== */
+* {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact; /* Fuerza a los navegadores a imprimir colores */
 }
 
-.pagina{
-background:white;
-width:210mm;
-min-height:297mm;
-padding:22mm 24mm;
-box-shadow:0 0 14px rgba(0,0,0,0.18);
-line-height:1.35;
+body {
+    font-family: "Times New Roman", serif;
+    background: #dee2e6;
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    margin: 0;
+}
+
+/* El contenedor principal debe ser rígido para el PDF */
+.pagina {
+    background: white;
+    width: 210mm;
+    min-height: 297mm;
+    padding: 15mm 20mm;
+    box-shadow: 0 0 14px rgba(0,0,0,0.18);
+    line-height: 1.4;
+    position: relative;
+    color: #000;
 }
 
 /* ====== TITULOS ====== */
-
-h1{
-text-align:center;
-font-size:20px;
-letter-spacing:1px;
-margin-bottom:18px;
+h1 {
+    text-align: center;
+    font-size: 18pt;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-h2{
-font-size:15px;
-margin-top:18px;
-margin-bottom:8px;
-padding-bottom:2px;
-border-bottom:1.5px solid #000;
+h2 {
+    font-size: 13pt;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #000;
+    text-transform: uppercase;
 }
 
-h3{
-font-size:13px;
-margin-top:12px;
-margin-bottom:4px;
+h3 {
+    font-size: 11pt;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-style: italic;
 }
 
-/* ====== TEXTO ====== */
-
-p{
-margin:6px 0;
-font-size:13px;
+/* ====== TEXTO Y ESTRUCTURA ====== */
+p {
+    margin: 8px 0;
+    font-size: 10.5pt;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
 }
 
-label{
-font-size:13px;
-margin-right:10px;
+b {
+    margin-right: 5px;
 }
 
-/* ====== CAMPOS ====== */
-
-.mini{
-width:90px;
-border:none;
-border-bottom:1px solid #000;
-margin-left:4px;
+label {
+    font-size: 10pt;
+    margin-right: 12px;
+    cursor: pointer;
 }
 
-.linea{
-width:100%;
-border:none;
-border-bottom:1px solid #000;
-margin-top:2px;
+/* ====== CAMPOS DE ENTRADA ====== */
+input[type="text"] {
+    border: none;
+    border-bottom: 1px solid #333;
+    padding: 2px 5px;
+    font-family: inherit;
+    font-size: 10pt;
+    background: transparent;
 }
 
-.area{
-width:100%;
-height:58px;
-border:1px solid #000;
-padding:4px;
-margin-top:4px;
-resize:vertical;
-font-family:"Times New Roman", serif;
+.mini {
+    width: 100px;
+    flex-grow: 0;
 }
 
-/* ====== FILAS CLINICAS ====== */
-
-.fila{
-display:flex;
-flex-wrap:wrap;
-gap:14px;
-align-items:center;
-margin:4px 0;
+.linea {
+    flex: 1; /* Hace que la línea ocupe el espacio restante */
+    min-width: 150px;
 }
 
-.bloque{
-margin-top:6px;
-}
-
-/* ====== CHECKBOX ====== */
-
-input[type="checkbox"]{
-transform:scale(0.9);
-margin-right:3px;
+.area {
+    width: 100%;
+    height: 70px;
+    border: 1px solid #000;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    resize: none; /* Mejor desactivar el resize para el PDF */
+    font-family: "Times New Roman", serif;
+    font-size: 10pt;
+    display: block;
 }
 
 /* ====== ODONTOGRAMA ====== */
-
-#odontograma{
-display:grid;
-grid-template-columns:repeat(16, 1fr);
-gap:6px;
-margin-top:10px;
-margin-bottom:12px;
-justify-items:center;
+#odontograma {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr); /* 16 dientes por fila */
+    gap: 2px;
+    margin: 25px 0;
+    padding: 10px;
+    border: 1px solid #eee;
+    justify-items: center;
+    width: 100%;
 }
 
-.diente{
-display:flex;
-flex-direction:column;
-align-items:center;
-font-size:9px;
+.diente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.tooth{
-width:28px;
-height:32px;
-cursor:pointer;
+.tooth {
+    width: 32px; /* Tamaño optimizado para que quepan 16 */
+    height: auto;
+    cursor: pointer;
 }
 
-.sup{
-fill:white;
-stroke:#333;
-stroke-width:1;
-transition:0.15s;
+.sup {
+    fill: #ffffff;
+    stroke: #000000;
+    stroke-width: 1.2;
+    transition: fill 0.2s;
 }
 
-.sup:hover{
-stroke-width:1.4;
+/* Colores de estados con !important para asegurar el PDF */
+.sup.caries { fill: #ff4d4d !important; }
+.sup.obturado { fill: #4d94ff !important; }
+.sup.corona { fill: #ffd700 !important; }
+.sup.ausente { fill: #b3b3b3 !important; }
+
+.num {
+    font-size: 8pt;
+    font-weight: bold;
+    margin-top: 4px;
 }
 
-.sup.caries{ fill:#ff6b6b; }
-.sup.obturado{ fill:#4dabf7; }
-.sup.corona{ fill:#ffd43b; }
-.sup.ausente{ fill:#adb5bd; }
-
-.num{
-font-size:9px;
-margin-top:1px;
+/* ====== FIRMAS ====== */
+.seccion-firmas {
+    margin-top: 40px;
 }
 
-/* ====== BOTON PDF ====== */
-
-button{
-margin-top:22px;
-padding:8px 20px;
-background:#000;
-color:white;
-border:none;
-font-size:13px;
-cursor:pointer;
-display:block;
-margin-left:auto;
-margin-right:auto;
+.firma-linea {
+    border-bottom: 1px solid #000;
+    width: 250px;
+    display: inline-block;
 }
 
-button:hover{
-background:#333;
+/* ====== BOTÓN ====== */
+button {
+    margin: 30px auto;
+    padding: 12px 30px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    transition: background 0.3s;
 }
 
-/* ====== IMPRESION ====== */
-
-@media print{
-body{
-background:white;
-padding:0;
+button:hover {
+    background: #1a252f;
 }
 
-.pagina{
-box-shadow:none;
-margin:0;
-width:100%;
-min-height:auto;
-}
+/* ====== CONFIGURACIÓN PARA PDF/IMPRESIÓN ====== */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
 
-button{
-display:none;
-}
-}
+    .pagina {
+        box-shadow: none;
+        margin: 0;
+        width: 100%;
+        padding: 0; /* html2pdf ya maneja sus propios márgenes */
+    }
 
-.pagina {
-  margin: 0 auto; /* centra horizontalmente */
-  display: block; /* asegura que html2canvas lo reconozca bien */
-} 
+    button {
+        display: none !important;
+    }
+}
