@@ -1,7 +1,7 @@
 /* ====== RESET Y BASE ====== */
 * {
     box-sizing: border-box;
-    -webkit-print-color-adjust: exact; /* Fuerza a los navegadores a imprimir colores */
+    -webkit-print-color-adjust: exact;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
     margin: 0;
 }
 
-/* El contenedor principal debe ser rígido para el PDF */
+/* Contenedor optimizado para A4 */
 .pagina {
     background: white;
     width: 210mm;
@@ -21,7 +21,6 @@ body {
     padding: 15mm 20mm;
     box-shadow: 0 0 14px rgba(0,0,0,0.18);
     line-height: 1.4;
-    position: relative;
     color: #000;
 }
 
@@ -47,7 +46,6 @@ h3 {
     font-size: 11pt;
     margin-top: 15px;
     margin-bottom: 5px;
-    font-style: italic;
 }
 
 /* ====== TEXTO Y ESTRUCTURA ====== */
@@ -59,14 +57,14 @@ p {
     align-items: baseline;
 }
 
-b {
-    margin-right: 5px;
-}
+b { margin-right: 5px; }
 
 label {
     font-size: 10pt;
     margin-right: 12px;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
 }
 
 /* ====== CAMPOS DE ENTRADA ====== */
@@ -79,13 +77,10 @@ input[type="text"] {
     background: transparent;
 }
 
-.mini {
-    width: 100px;
-    flex-grow: 0;
-}
+.mini { width: 100px; }
 
 .linea {
-    flex: 1; /* Hace que la línea ocupe el espacio restante */
+    flex: 1;
     min-width: 150px;
 }
 
@@ -96,20 +91,27 @@ input[type="text"] {
     padding: 8px;
     margin-top: 5px;
     margin-bottom: 10px;
-    resize: none; /* Mejor desactivar el resize para el PDF */
+    resize: none;
     font-family: "Times New Roman", serif;
     font-size: 10pt;
     display: block;
 }
 
-/* ====== ODONTOGRAMA ====== */
+/* ====== ODONTOGRAMA (CORREGIDO PARA 2 FILAS) ====== */
 #odontograma {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Espacio entre arcada superior e inferior */
+    margin: 30px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.fila-odontograma {
     display: grid;
     grid-template-columns: repeat(16, 1fr); /* 16 dientes por fila */
-    gap: 2px;
-    margin: 25px 0;
-    padding: 10px;
-    border: 1px solid #eee;
+    gap: 4px;
     justify-items: center;
     width: 100%;
 }
@@ -121,19 +123,21 @@ input[type="text"] {
 }
 
 .tooth {
-    width: 32px; /* Tamaño optimizado para que quepan 16 */
+    width: 32px; /* Tamaño ideal para que quepan 16 sin amontonarse */
     height: auto;
     cursor: pointer;
+    overflow: visible;
 }
 
+/* Estilos de los caminos del SVG */
 .sup {
     fill: #ffffff;
     stroke: #000000;
-    stroke-width: 1.2;
+    stroke-width: 1.5; /* Un poco más grueso para que se vea claro en el PDF */
     transition: fill 0.2s;
 }
 
-/* Colores de estados con !important para asegurar el PDF */
+/* Colores de estados con !important para la captura del canvas */
 .sup.caries { fill: #ff4d4d !important; }
 .sup.obturado { fill: #4d94ff !important; }
 .sup.corona { fill: #ffd700 !important; }
@@ -147,13 +151,10 @@ input[type="text"] {
 
 /* ====== FIRMAS ====== */
 .seccion-firmas {
-    margin-top: 40px;
-}
-
-.firma-linea {
-    border-bottom: 1px solid #000;
-    width: 250px;
-    display: inline-block;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 /* ====== BOTÓN ====== */
@@ -168,28 +169,17 @@ button {
     font-weight: bold;
     cursor: pointer;
     display: block;
-    transition: background 0.3s;
 }
 
-button:hover {
-    background: #1a252f;
-}
+button:hover { background: #1a252f; }
 
-/* ====== CONFIGURACIÓN PARA PDF/IMPRESIÓN ====== */
+/* ====== AJUSTES DE IMPRESIÓN/PDF ====== */
 @media print {
-    body {
-        background: white;
-        padding: 0;
+    body { background: white; padding: 0; }
+    .pagina { 
+        box-shadow: none !important; 
+        margin: 0 !important; 
+        width: 100% !important;
     }
-
-    .pagina {
-        box-shadow: none;
-        margin: 0;
-        width: 100%;
-        padding: 0; /* html2pdf ya maneja sus propios márgenes */
-    }
-
-    button {
-        display: none !important;
-    }
+    button { display: none !important; }
 }
