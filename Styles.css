@@ -123,21 +123,20 @@ input[type="text"] {
 }
 
 .tooth {
-    width: 32px; /* Tamaño ideal para que quepan 16 sin amontonarse */
+    width: 32px; 
     height: auto;
     cursor: pointer;
     overflow: visible;
 }
 
-/* Estilos de los caminos del SVG */
 .sup {
     fill: #ffffff;
     stroke: #000000;
-    stroke-width: 1.5; /* Un poco más grueso para que se vea claro en el PDF */
+    stroke-width: 1.5; 
     transition: fill 0.2s;
 }
 
-/* Colores de estados con !important para la captura del canvas */
+
 .sup.caries { fill: #ff4d4d !important; }
 .sup.obturado { fill: #4d94ff !important; }
 .sup.corona { fill: #ffd700 !important; }
